@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#07090d" />
+    <title>FitFlow — учёт тренировок</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">FF</span>
+          <div>
+            <strong>FitFlow</strong>
+            <span>Трекер тренировок</span>
+          </div>
+        </div>
+        <nav class="nav" aria-label="Основное меню">
+          <a href="#/home" data-route="home">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-9.5Z" />
+            </svg>
+            Главная
+          </a>
+          <a href="#/schedule" data-route="schedule">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="3.5" y="5" width="17" height="15" rx="2" />
+              <path d="M8 3.5V7M16 3.5V7M3.5 10h17" />
+            </svg>
+            Расписание
+          </a>
+          <a href="#/sections" data-route="sections">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M4 7h16M4 12h16M4 17h10" />
+            </svg>
+            Разделы
+          </a>
+          <a href="#/workouts" data-route="workouts">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M7 8h10M7 12h6M5 5h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" />
+            </svg>
+            Тренировки
+          </a>
+        </nav>
+        <p class="sidebar-hint">Данные хранятся локально в браузере.</p>
+      </aside>
+
+      <div class="shell">
+        <header class="topbar">
+          <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Открыть меню">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </button>
+          <div class="topbar-title">
+            <h1 id="pageTitle">Главная</h1>
+            <p id="pageSubtitle">Сегодняшние занятия и прогресс</p>
+          </div>
+          <button class="btn btn-primary" id="primaryAction" type="button">Добавить</button>
+        </header>
+        <main class="content" id="view"></main>
+      </div>
+    </div>
+
+    <nav class="tabbar" aria-label="Мобильная навигация">
+      <a href="#/home" data-route="home">Главная</a>
+      <a href="#/schedule" data-route="schedule">План</a>
+      <a href="#/sections" data-route="sections">Разделы</a>
+      <a href="#/workouts" data-route="workouts">Тренировки</a>
+    </nav>
+
+    <div class="backdrop" id="backdrop" hidden></div>
+
+    <div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-card">
+        <div class="modal-head">
+          <h2 id="modalTitle">Форма</h2>
+          <button class="icon-btn" id="modalClose" type="button" aria-label="Закрыть">✕</button>
+        </div>
+        <form id="modalForm" class="form"></form>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" hidden></div>
+
+    <script src="js/storage.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
